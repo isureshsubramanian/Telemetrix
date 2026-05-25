@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>Telemetrix</RootNamespace>
+    <AssemblyName>Telemetrix</AssemblyName>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <EnableConfigurationBindingGenerator>true</EnableConfigurationBindingGenerator>
+
+    <!-- NuGet package metadata -->
+    <PackageId>Telemetrix</PackageId>
+    <Version>0.1.0</Version>
+    <Title>Telemetrix</Title>
+    <Description>In-process OpenTelemetry trace, log and metric visualizer with an embedded executive dashboard. A zero-dependency local alternative to Jaeger, Zipkin and Aspire for ASP.NET Core development.</Description>
+    <PackageTags>opentelemetry;tracing;observability;aspnetcore;diagnostics;dashboard;efcore;activity</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/sureshsubramanian/Telematrix</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/sureshsubramanian/Telematrix</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry" />
+    <PackageReference Include="OpenTelemetry.Extensions.Hosting" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" />
+    <PackageReference Include="OpenTelemetry.Instrumentation.Http" />
+  </ItemGroup>
+
+  <!-- Embed the dashboard UI (HTML / CSS / JS) directly into the assembly. -->
+  <ItemGroup>
+    <None Remove="wwwroot\**\*" />
+    <EmbeddedResource Include="wwwroot\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Telemetrix.Tests" />
+  </ItemGroup>
+
+</Project>

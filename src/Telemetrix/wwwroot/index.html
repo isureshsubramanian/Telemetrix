@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Telemetrix</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%236366f1'/%3E%3Cpath d='M7 19h3.4v6H7zM14.3 11h3.4v14h-3.4zM21.6 15h3.4v10h-3.4z' fill='white'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="{{BASE}}/assets/app.css" />
+  <script>window.TELEMETRIX = {{CONFIG}};</script>
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="var(--accent)" />
+          <path d="M7 19h3.4v6H7zM14.3 11h3.4v14h-3.4zM21.6 15h3.4v10h-3.4z" fill="#fff" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">Telemetrix</span>
+          <span class="brand-sub">Local telemetry visualizer</span>
+        </div>
+        <span class="env-pill" id="envPill">&mdash;</span>
+      </div>
+
+      <div class="topbar-actions">
+        <span class="status-dot" id="connDot" title="Connection"></span>
+        <span class="muted small" id="lastUpdated">&mdash;</span>
+        <button class="btn" id="liveBtn" type="button" aria-pressed="true">
+          <span class="live-led"></span><span id="liveLabel">Live</span>
+        </button>
+        <button class="btn" id="refreshBtn" type="button" title="Refresh now">Refresh</button>
+        <button class="btn btn-ghost" id="clearBtn" type="button" title="Discard all captured telemetry">Clear</button>
+        <button class="btn btn-icon" id="themeBtn" type="button" title="Toggle theme" aria-label="Toggle theme"></button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="overview" role="tab" type="button">Overview</button>
+      <button class="tab" data-tab="traces" role="tab" type="button">Traces</button>
+      <button class="tab" data-tab="logs" role="tab" type="button">Logs</button>
+      <button class="tab" data-tab="metrics" role="tab" type="button">Metrics</button>
+    </nav>
+
+    <main id="view" class="view"></main>
+    <footer class="appfoot">
+      <span id="footVersion" class="muted small"></span>
+      <span class="muted small">Telemetrix runs in-process &mdash; Development only.</span>
+    </footer>
+  </div>
+
+  <div id="drawer" class="drawer" hidden>
+    <div class="drawer-backdrop" data-close="1"></div>
+    <aside class="drawer-panel" role="dialog" aria-label="Trace detail">
+      <div id="drawerBody"></div>
+    </aside>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="{{BASE}}/assets/app.js"></script>
+</body>
+</html>

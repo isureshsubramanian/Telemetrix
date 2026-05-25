@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Telemetrix/Telemetrix.csproj" />
+  </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Telemetrix.Sample/Telemetrix.Sample.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Telemetrix.Tests/Telemetrix.Tests.csproj" />
+  </Folder>
+  <Folder Name="/solution items/">
+    <File Path="README.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+  </Folder>
+</Solution>

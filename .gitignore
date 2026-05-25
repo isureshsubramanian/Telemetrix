@@ -442,3 +442,9 @@ presentations/
 *.db
 *.db-shm
 *.db-wal
+
+# ----- Telemetrix -----
+# Local SQLite database created by the sample app
+*.db
+*.db-shm
+*.db-wal
